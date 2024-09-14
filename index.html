@@ -23,8 +23,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('cindywallpaper.png') repeat; /* Tile the image */
-            background-size: auto; /* Keep original size */
+            background: url('cindywallpaper.png') no-repeat center center;
+            background-size: cover; /* Cover the entire screen */
             z-index: -3; /* Behind the video */
         }
 
@@ -35,11 +35,69 @@
             left: 50%;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ensure the video fits without stretching */
             transform: translate(-50%, -50%); /* Center the video */
             z-index: -2; /* Behind the overlay but in front of the background image */
         }
 
+        /* Default video behavior */
+        .video-background.default {
+            object-fit: contain; /* Maintains aspect ratio and prevents stretching */
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .video-background {
+                object-fit: cover; /* Stretches the video to cover the screen */
+            }
+
+            .circle-container {
+                padding: 15px;
+                top: 30px;
+            }
+
+            .circle-text {
+                font-size: 20px;
+            }
+
+            .status-text {
+                font-size: 16px;
+            }
+
+            .additional-text {
+                font-size: 16px;
+            }
+
+            .unique-info {
+                bottom: 10px;
+            }
+
+            .call-to-action {
+                font-size: 14px;
+            }
+
+            .cta-detail {
+                font-size: 14px;
+            }
+
+            .button-container {
+                gap: 10px; /* Further reduced space between buttons */
+            }
+
+            .transparent-button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .button-icon {
+                width: 20px;
+            }
+
+            .button-text {
+                font-size: 16px;
+            }
+        }
+
+        /* Text overlay styles */
         .text-overlay {
             position: absolute;
             top: 0;
@@ -195,26 +253,6 @@
             margin-top: 5px;
         }
 
-        /* Mobile adjustments */
-        @media (max-width: 767px) {
-            .transparent-button {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-            .button-icon {
-                width: 20px;
-            }
-            .button-text {
-                font-size: 16px;
-            }
-            .call-to-action {
-                font-size: 14px;
-            }
-            .video-background {
-                object-fit: cover; /* Adjust video to cover the screen on mobile */
-            }
-        }
-
         /* Date display styles */
         .date-display {
             font-size: 16px;
@@ -234,7 +272,7 @@
     <div class="background-image"></div>
     
     <!-- Video background -->
-    <video class="video-background" autoplay loop muted>
+    <video class="video-background default" autoplay loop muted>
         <source src="0903.mp4" type="video/mp4">
         <source src="0903.webm" type="video/webm">
         Your browser does not support the video tag.
