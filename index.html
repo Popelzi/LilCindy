@@ -30,20 +30,29 @@
 
         /* Video background */
         .video-background {
-            position: fixed;
+            position: absolute;
             top: 50%;
             left: 50%;
-            width: 100%;
-            height: 100%;
             transform: translate(-50%, -50%);
-            object-fit: cover; /* Stretches the video to cover the screen */
             z-index: -2; /* Behind the overlay but in front of the background image */
+            /* Adjust these dimensions as needed for the video size */
+            max-width: 100vw; /* Ensure video doesn’t overflow horizontally */
+            max-height: 100vh; /* Ensure video doesn’t overflow vertically */
+        }
+
+        /* Default video behavior */
+        .video-background.desktop {
+            object-fit: contain; /* Retains the aspect ratio and avoids stretching */
+        }
+
+        .video-background.mobile {
+            object-fit: contain; /* Retains the aspect ratio and avoids stretching */
         }
 
         /* Mobile adjustments */
         @media (max-width: 767px) {
             .video-background {
-                object-fit: cover; /* Ensures the video covers the screen */
+                object-fit: contain; /* Retains the aspect ratio on mobile */
             }
 
             .circle-container {
@@ -268,7 +277,7 @@
     <div class="background-image"></div>
     
     <!-- Video background -->
-    <video class="video-background" autoplay loop muted playsinline>
+    <video class="video-background desktop" autoplay loop muted playsinline>
         <source src="0903.mp4" type="video/mp4">
         <source src="0903.webm" type="video/webm">
         Your browser does not support the video tag.
