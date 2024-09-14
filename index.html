@@ -210,6 +210,9 @@
             .call-to-action {
                 font-size: 14px;
             }
+            .video-background {
+                object-fit: cover; /* Adjust video to cover the screen on mobile */
+            }
         }
 
         /* Date display styles */
@@ -231,8 +234,9 @@
     <div class="background-image"></div>
     
     <!-- Video background -->
-    <video class="video-background" autoplay loop>
+    <video class="video-background" autoplay loop muted>
         <source src="0903.mp4" type="video/mp4">
+        <source src="0903.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
     
