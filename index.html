@@ -18,14 +18,16 @@
 
         /* Background image */
         .background-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('cindywallpaper.png') repeat;
-            background-size: cover; /* Cover the entire screen */
-            z-index: -3; /* Behind the video */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('cindywallpaper.png') repeat; /* Tiles the background image */
+    background-size: auto; /* Ensures the image is displayed in its original size */
+    z-index: -3; /* Keeps it behind the video */
+}
+}
         }
 
         /* Video background */
